@@ -33,9 +33,6 @@ const registerUser = asyncHandler(  async (req, res) => {
     res.status(400);
     throw new Error("Email has already been registered");
    }
-
-  
-   
    
    // Create new user
    const user = await User.create({
@@ -281,8 +278,8 @@ const forgotPassword = asyncHandler (async (req, res) => {
       <p>regards...</p>
     `;
     const subject = "Password Reset Request"
-    const send_to = user.email
-    const sent_from = process.env.EMAIL_USER
+    const send_to = user.email;
+    const sent_from = process.env.EMAIL_USER;
 
     try {
         await sendEmail(subject, message, send_to, sent_from)
